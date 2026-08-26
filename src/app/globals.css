@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-brand: #E8192C;
+  --color-primary: #2563EB;
+  --color-danger: #DC2626;
+  --color-warning: #D97706;
+  --color-success: #16A34A;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-foreground: #0F172A;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* Animations */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bar-grow {
+  from { width: 0%; }
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fade-up  { animation: fade-in-up 0.35s ease both; }
+.animate-bar-grow { animation: bar-grow 0.7s cubic-bezier(.4,0,.2,1) both; }
+.pulse-dot        { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* Staggered children */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
